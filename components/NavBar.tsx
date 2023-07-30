@@ -6,6 +6,7 @@ import logo from "../assets/logo.png";
 import { useRouter } from 'next/router';
 import useTranslate from '../hooks/useTranslate';
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Link from "next/link";
 
 const NavBar = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
@@ -64,6 +65,10 @@ const NavBar = () => {
           {t("navbar.contactUs")}
           </Nav.Link>
         </Nav>
+        <div className="lan-container">
+        <Link href="/ar" locale="ar"><button>العربية</button></Link>
+        <Link href="/en" locale="en"><button>English</button></Link>
+        </div>
         <Nav className={locale === "ar"? "me-auto" : "english-margin"}>
           <div style={isSmallLayout ? { margin: "20px" } : {}}>
             <BookButton
@@ -76,6 +81,18 @@ const NavBar = () => {
       <style jsx>{`
         .english-margin{
           margin: 0 100px;
+        }
+        .lan-container{
+          margin: 0 50px;
+        }
+        .lan-container button{
+          border: none;
+          border-radius: 5px;
+          background-color: #BF2132;
+          color: #fff;
+          padding: 7px;
+          font-size: 14px;
+          margin: 0 4px;
         }
       `}</style>
     </Navbar>

@@ -63,7 +63,7 @@ const ContactUs = () => {
           <button onClick={submitSearch} className="search-btn" disabled={carNumber === ''} >{t('contactUs.searchBtn')}</button>
         </div>
         <div className="write-container">
-        {carDetails.carNumber && <div className="result-car-details">
+        {carDetails.carNumber && carNumber && <div className="result-car-details">
           <div>
           <p className="detaile-title">{t('contactUs.carNumber')}</p>
           <p>{carDetails.carNumber}</p>
@@ -81,7 +81,7 @@ const ContactUs = () => {
           <p>{carDetails.tozeret_nm}</p>
           </div>
         </div>}
-          <label htmlFor="write">{t('contactUs.writeLabel')}</label>
+          <label style={{marginTop: "30px"}} htmlFor="write">{t('contactUs.writeLabel')}</label>
           <textarea
             id="write"
             name="write"
@@ -185,9 +185,7 @@ const ContactUs = () => {
 
         .search-btn:disabled,
         .search-btn[disabled]{
-          color: gray;
-          border: none;
-
+          color: #fff;
         }
 
         .car-number {
