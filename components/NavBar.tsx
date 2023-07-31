@@ -27,8 +27,8 @@ const NavBar = () => {
   };
 
   const NavLinkStyle = isSmallLayout
-    ? { margin: "10px 50px" }
-    : { marginLeft: "20px" };
+    ? { margin: "10px 50px"}
+    : { marginLeft: "20px"};
 
   return (
     <Navbar
@@ -80,19 +80,22 @@ const NavBar = () => {
       </Navbar.Collapse>
       <style jsx>{`
         .english-margin{
-          margin: 0 100px;
+          margin-right: 100px;
         }
         .lan-container{
-          margin: 0 50px;
+          margin: 0 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
         .lan-container button{
           border: none;
           border-radius: 5px;
           background-color: #BF2132;
           color: #fff;
-          padding: 7px;
+          padding: 4px;
           font-size: 14px;
-          margin: 0 4px;
+          margin: 0 2px;
         }
       `}</style>
     </Navbar>
