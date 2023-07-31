@@ -145,7 +145,7 @@ const AboutUsSlider = () => {
         <div className="slider-footer">
         {loaded && instanceRef.current && (
           <div className="dots">
-            {[
+            {isSmallLayout ?([
               ...Array(instanceRef.current.track.details.slides.length).keys(),
             ].map((idx) => {
               return (
@@ -157,7 +157,21 @@ const AboutUsSlider = () => {
                   className={"dot" + (currentSlide === idx ? " active" : "")}
                 ></button>
               );
-            })}
+            })): 
+            ([
+              ...Array(instanceRef.current.track.details.slides.length - 2).keys(),
+            ].map((idx) => {
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    instanceRef.current?.moveToIdx(idx);
+                  }}
+                  className={"dot" + (currentSlide === idx ? " active" : "")}
+                ></button>
+              );
+            }))
+            }
           </div>
         )}
         </div>
