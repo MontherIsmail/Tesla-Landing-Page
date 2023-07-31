@@ -88,8 +88,8 @@ const Footer = () => {
         }
         .part-1{
             text-align: start;
-            width: ${isSmallLayout ? "100%" : "31%"};
-            margin-left: ${isSmallLayout? "20px" : "100px"};
+            width: ${isSmallLayout ? "100%" : "40%"};
+            margin-left: ${isSmallLayout? "20px" : "70px"};
             margin-bottom: ${isSmallLayout? "20px" : ""};
         }
         .part-1 p{
