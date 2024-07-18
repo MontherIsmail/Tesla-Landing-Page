@@ -4,15 +4,15 @@ import Image from "next/image";
 import contactUsBackground from "../../assets/contactUsBackground.png";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
-import { useRouter } from 'next/router';
 import { search } from "../../pages/api/search";
 import Toasts from "../Toast";
+import { translate, getLanguage } from '../../hooks/translation';
 
 const ContactUs = () => {
   const [carNumber, setCarNumber] = useState<string>('');
   const [showToasts, setShowToasts] = useState<boolean>(false);
   const [carDetails, setCarDetails] = useState<any>({})
+  const language = getLanguage();
 
   const submitSearch = async () => {
     try{
@@ -29,9 +29,6 @@ const ContactUs = () => {
     }
   }
   
-  const { t } = useTranslate('home');
-  const router = useRouter();
-  const { locale } = router;
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
   return (
     <div id="contact-us" className="contact-us">
@@ -45,11 +42,11 @@ const ContactUs = () => {
         />
       </div>
       <div className="contact-us-form">
-        <h3 className="TitleStyle">{t('contactUs.title')}</h3>
-        <p className="InfoTextStyle">{t('contactUs.description')}</p>
+        <h3 className="TitleStyle">{translate('contactUsTitle', language)}</h3>
+        <p className="InfoTextStyle">{translate('contactUsDescription', language)}</p>
         <div className="car-num-button">
           <div className="car-number-container">
-            <label htmlFor="car-number">{t('contactUs.searchlabel')}</label>
+            <label htmlFor="car-number">{translate('contactUsSearchlabel', language)}</label>
             <input
               type="tel"
               id="car-number"
@@ -57,40 +54,40 @@ const ContactUs = () => {
               className="gray-input car-number"
               value={carNumber}
               onChange={(e) => setCarNumber(e.target.value)}
-              placeholder={t('contactUs.searchPlaceholder')}
+              placeholder={translate('contactUsSearchPlaceholder', language)}
             />
           </div>
-          <button onClick={submitSearch} className="search-btn" disabled={carNumber === ''} >{t('contactUs.searchBtn')}</button>
+          <button onClick={submitSearch} className="search-btn" disabled={carNumber === ''} >{translate('contactUsSearchBtn', language)}</button>
         </div>
         <div className="write-container">
         {carDetails.carNumber && carNumber && <div className="result-car-details">
           <div>
-          <p className="detaile-title">{t('contactUs.carNumber')}</p>
+          <p className="detaile-title">{translate('contactUsCarNumber', language)}</p>
           <p>{carDetails.carNumber}</p>
           </div>
           <div>
-          <p className="detaile-title">{t('contactUs.carName')}</p>
+          <p className="detaile-title">{translate('contactUsCarName', language)}</p>
           <p>{carDetails.kinuy_mishari}</p>
           </div>
           <div>
-          <p className="detaile-title">{t('contactUs.tradeName')}</p>
+          <p className="detaile-title">{translate('contactUsTradeName', language)}</p>
           <p>{carDetails.shnat_yitzur}</p>
           </div>
           <div>
-          <p className="detaile-title">{t('contactUs.carModal')}</p>
+          <p className="detaile-title">{translate('contactUsCarModal', language)}</p>
           <p>{carDetails.tozeret_nm}</p>
           </div>
         </div>}
-          <label style={{marginTop: "30px"}} htmlFor="write">{t('contactUs.writeLabel')}</label>
+          <label style={{marginTop: "30px"}} htmlFor="write">{translate('contactUsWriteLabel', language)}</label>
           <textarea
             id="write"
             name="write"
             className="gray-input write"
-            placeholder={t('contactUs.writePlaceholder')}
+            placeholder={translate('contactUsWritePlaceholder', language)}
             style={{ width: "100%" }}
           />
         </div>
-        <button className="send-btn">{t('contactUs.sendBtn')}</button>
+        <button className="send-btn">{translate('contactUsSendBtn', language)}</button>
       </div>
       <style jsx>{`
         .contact-us {
@@ -172,7 +169,7 @@ const ContactUs = () => {
         .search-btn {
           position: absolute;
           top: 34px;
-          ${locale === "ar" ? "left: 3px;" : "right: 3px;"}
+          ${language === "ar" ? "left: 3px;" : "right: 3px;"}
           z-index: 1;
           height: 41px;
           width: 120px;

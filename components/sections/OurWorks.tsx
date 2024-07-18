@@ -4,11 +4,12 @@ import Image from "next/image";
 import WorksSlider from "../WorksSlider";
 import ourWorksBackground from "../../assets/ourWorksBackground.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
+import { translate, getLanguage } from '../../hooks/translation';
+
 
 const OurWorks = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
+  const language = getLanguage();
 
   return (
     <div id="our-works" className="ourWorksSection">
@@ -21,8 +22,8 @@ const OurWorks = () => {
       </div>
       <div className="our-works-content">
         <div className="our-works-info">
-          <h3 className="TitleStyle">{t('ourWorks.title')}</h3>
-          <p className="InfoTextStyle">{t('ourWorks.description')}</p>
+          <h3 className="TitleStyle">{translate('ourWorksTitle', language)}</h3>
+          <p className="InfoTextStyle">{translate('ourWorksDescription', language)}</p>
         </div>
         <div className="slider-container">
           <WorksSlider />

@@ -8,14 +8,15 @@ import JAC from "../../assets/JAC.png";
 import ANKAI from "../../assets/ANKAI.png";
 import LEVC from "../../assets/LEVC.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
+import { translate, getLanguage } from '../../hooks/translation';
+
 
 const Agents = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
+  const language = getLanguage();
   return (
     <div id="agents" className="AgentsSectionStyle">
-      <h3 className="AgentsTitleStyle">{t('agents.title')}</h3>
+      <h3 className="AgentsTitleStyle">{translate('agentsTitle', language)}</h3>
       <div className="AgentsLogosStyle">
         <div className="first-row">
           <div className="componey-logo">

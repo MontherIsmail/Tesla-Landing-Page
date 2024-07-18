@@ -1,47 +1,47 @@
 "use client";
 import ServiceCard from "../ServiceCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from "../../hooks/useTranslate";
 import fix from "../../assets/fix.png";
 import Gears from "../../assets/Gears.png";
 import buttery from "../../assets/buttery.png";
 import condation from "../../assets/condation.png";
 import carIcon from "../../assets/carIcon.png";
+import { translate, getLanguage } from '../../hooks/translation';
 
 const Services = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
   const isMobileLayout = useMediaQuery("(max-width:817px)");
-  const { t } = useTranslate("home");
+  const language = getLanguage();
 
   return (
     <div id="services" className="ServicesStyle">
-      <h3 className="TitleStyle">{t("services.title")}</h3>
-      <p className="InfoTextStyle">{t("services.description")}</p>
+      <h3 className="TitleStyle">{translate("servicesTitle", language)}</h3>
+      <p className="InfoTextStyle">{translate("servicesDescription", language)}</p>
       <div className="CardsContainerStyle">
         <ServiceCard
-          title={t("services.cards.card1.title")}
+          title={translate("serCard1Title", language)}
           image={fix}
-          content={t("services.cards.card1.description")}
+          content={translate("serCard1Description", language)}
         />
         <ServiceCard
-          title={t("services.cards.card2.title")}
+          title={translate("serCard2Title", language)}
           image={Gears}
-          content={t("services.cards.card2.description")}
+          content={translate("serCard2Description", language)}
         />
         <ServiceCard
-          title={t("services.cards.card3.title")}
+          title={translate("serCard3Title", language)}
           image={buttery}
-          content={t("services.cards.card3.description")}
+          content={translate("serCard3Description", language)}
         />
         <ServiceCard
-          title={t("services.cards.card4.title")}
+          title={translate("serCard4Title", language)}
           image={condation}
-          content={t("services.cards.card4.description")}
+          content={translate("serCard4Description", language)}
         />
         <ServiceCard
-          title={t("services.cards.card5.title")}
+          title={translate("serCard5Title", language)}
           image={carIcon}
-          content={t("services.cards.card5.description")}
+          content={translate("serCard5Description", language)}
         />
       </div>
       <style jsx>{`

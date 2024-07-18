@@ -10,15 +10,15 @@ import PalestineInsurance from "../../assets/PalestineInsurance.png";
 import AlTakafulInsurance from "../../assets/AlTakafulInsurance.png";
 import nationalInsuranceComponey from "../../assets/nationalInsuranceComponey.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
+import { translate, getLanguage } from '../../hooks/translation';
 
 const Certified = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
+  const language = getLanguage();
 
   return (
     <div id="certified" className="CertifiedSectionStyle">
-      <h3 className="CertifiedTitleStyle">{t('certified.title')}</h3>
+      <h3 className="CertifiedTitleStyle">{translate('certifiedTitle', language)}</h3>
       <div className="CertifiedLogosStyle">
         <div className="first-row">
         <div className="componey-logo">

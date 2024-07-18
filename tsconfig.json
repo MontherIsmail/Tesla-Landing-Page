@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/Toast.jsx"  ],
+, "components/Toast.jsx", "hooks/translation.ts", "components/NavBar.jsx"  ],
   "exclude": [
     "node_modules"
   ]

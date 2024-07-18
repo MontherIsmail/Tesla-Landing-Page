@@ -6,8 +6,8 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import commaIcons from "../assets/commaIcons.png";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../hooks/useTranslate';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+import { translate, getLanguage } from "../hooks/translation";
 
 const AboutUsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,9 +33,7 @@ const AboutUsSlider = () => {
   });
 
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
-  const router = useRouter();
-  const { locale } = router;
+  const language = getLanguage();
 
   return (
     <div>
@@ -52,7 +50,7 @@ const AboutUsSlider = () => {
                 e.stopPropagation() || instanceRef.current?.next()
               }
             >
-              {locale === "ar" ? <BsArrowRight /> : <BsArrowLeft />}
+              {language === "ar" ? <BsArrowRight /> : <BsArrowLeft />}
             </button>
             <button
               className="navigate-btn"
@@ -61,7 +59,7 @@ const AboutUsSlider = () => {
                 e.stopPropagation() || instanceRef.current?.prev()
               }
             >
-              {locale === "ar" ? <BsArrowLeft /> : <BsArrowRight />}
+              {language === "ar" ? <BsArrowLeft /> : <BsArrowRight />}
             </button>
           </div>
         </div>
@@ -73,9 +71,15 @@ const AboutUsSlider = () => {
               <Image src={commaIcons} width={100} alt="our work image" />
             </div>
             <div className="slide-content">
-              <p className="client-name">{t('aboutUs.card.title')}</p>
-              <p className="client-type">{t('aboutUs.card.type')}</p>
-              <p className="message-text">{t('aboutUs.card.description')}</p>
+              <p className="client-name">
+                {translate("aboutUsCardTitle", language)}
+              </p>
+              <p className="client-type">
+                {translate("aboutUsCardType", language)}
+              </p>
+              <p className="message-text">
+                {translate("aboutUsCardDescription", language)}
+              </p>
             </div>
           </div>
         </div>
@@ -85,9 +89,15 @@ const AboutUsSlider = () => {
               <Image src={commaIcons} width={100} alt="our work image" />
             </div>
             <div className="slide-content">
-              <p className="client-name">{t('aboutUs.card.title')}</p>
-              <p className="client-type">{t('aboutUs.card.type')}</p>
-              <p className="message-text">{t('aboutUs.card.description')}</p>
+              <p className="client-name">
+                {translate("aboutUsCardTitle", language)}
+              </p>
+              <p className="client-type">
+                {translate("aboutUsCardType", language)}
+              </p>
+              <p className="message-text">
+                {translate("aboutUsCardDescription", language)}
+              </p>
             </div>
           </div>
         </div>
@@ -97,9 +107,15 @@ const AboutUsSlider = () => {
               <Image src={commaIcons} width={100} alt="our work image" />
             </div>
             <div className="slide-content">
-              <p className="client-name">{t('aboutUs.card.title')}</p>
-              <p className="client-type">{t('aboutUs.card.type')}</p>
-              <p className="message-text">{t('aboutUs.card.description')}</p>
+              <p className="client-name">
+                {translate("aboutUsCardTitle", language)}
+              </p>
+              <p className="client-type">
+                {translate("aboutUsCardType", language)}
+              </p>
+              <p className="message-text">
+                {translate("aboutUsCardDescription", language)}
+              </p>
             </div>
           </div>
         </div>
@@ -109,9 +125,15 @@ const AboutUsSlider = () => {
               <Image src={commaIcons} width={100} alt="our work image" />
             </div>
             <div className="slide-content">
-              <p className="client-name">{t('aboutUs.card.title')}</p>
-              <p className="client-type">{t('aboutUs.card.type')}</p>
-              <p className="message-text">{t('aboutUs.card.description')}</p>
+              <p className="client-name">
+                {translate("aboutUsCardTitle", language)}
+              </p>
+              <p className="client-type">
+                {translate("aboutUsCardType", language)}
+              </p>
+              <p className="message-text">
+                {translate("aboutUsCardDescription", language)}
+              </p>
             </div>
           </div>
         </div>
@@ -121,9 +143,15 @@ const AboutUsSlider = () => {
               <Image src={commaIcons} width={100} alt="our work image" />
             </div>
             <div className="slide-content">
-              <p className="client-name">{t('aboutUs.card.title')}</p>
-              <p className="client-type">{t('aboutUs.card.type')}</p>
-              <p className="message-text">{t('aboutUs.card.description')}</p>
+              <p className="client-name">
+                {translate("aboutUsCardTitle", language)}
+              </p>
+              <p className="client-type">
+                {translate("aboutUsCardType", language)}
+              </p>
+              <p className="message-text">
+                {translate("aboutUsCardDescription", language)}
+              </p>
             </div>
           </div>
         </div>
@@ -133,47 +161,60 @@ const AboutUsSlider = () => {
               <Image src={commaIcons} width={100} alt="our work image" />
             </div>
             <div className="slide-content">
-              <p className="client-name">{t('aboutUs.card.title')}</p>
-              <p className="client-type">{t('aboutUs.card.type')}</p>
-              <p className="message-text">{t('aboutUs.card.description')}</p>
+              <p className="client-name">
+                {translate("aboutUsCardTitle", language)}
+              </p>
+              <p className="client-type">
+                {translate("aboutUsCardType", language)}
+              </p>
+              <p className="message-text">
+                {translate("aboutUsCardDescription", language)}
+              </p>
             </div>
           </div>
         </div>
-
       </div>
       <div>
         <div className="slider-footer">
-        {loaded && instanceRef.current && (
-          <div className="dots">
-            {isSmallLayout ?([
-              ...Array(instanceRef.current.track.details.slides.length).keys(),
-            ].map((idx) => {
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    instanceRef.current?.moveToIdx(idx);
-                  }}
-                  className={"dot" + (currentSlide === idx ? " active" : "")}
-                ></button>
-              );
-            })): 
-            ([
-              ...Array(instanceRef.current.track.details.slides.length - 2).keys(),
-            ].map((idx) => {
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    instanceRef.current?.moveToIdx(idx);
-                  }}
-                  className={"dot" + (currentSlide === idx ? " active" : "")}
-                ></button>
-              );
-            }))
-            }
-          </div>
-        )}
+          {loaded && instanceRef.current && (
+            <div className="dots">
+              {isSmallLayout
+                ? [
+                    ...Array(
+                      instanceRef.current.track.details.slides.length
+                    ).keys(),
+                  ].map((idx) => {
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          instanceRef.current?.moveToIdx(idx);
+                        }}
+                        className={
+                          "dot" + (currentSlide === idx ? " active" : "")
+                        }
+                      ></button>
+                    );
+                  })
+                : [
+                    ...Array(
+                      instanceRef.current.track.details.slides.length - 2
+                    ).keys(),
+                  ].map((idx) => {
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          instanceRef.current?.moveToIdx(idx);
+                        }}
+                        className={
+                          "dot" + (currentSlide === idx ? " active" : "")
+                        }
+                      ></button>
+                    );
+                  })}
+            </div>
+          )}
         </div>
       </div>
       <style jsx>{`
@@ -182,7 +223,7 @@ const AboutUsSlider = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: ${isSmallLayout? "280px" : "240px"};
+          height: ${isSmallLayout ? "280px" : "240px"};
           max-height: 100vh;
           border-radius: 8px;
         }
@@ -190,7 +231,7 @@ const AboutUsSlider = () => {
         .slider-item {
           background: rgba(255, 255, 255, 1);
           box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.1);
-          height: ${isSmallLayout? "220px" : "180px"};
+          height: ${isSmallLayout ? "220px" : "180px"};
           margin-top: 25px;
           padding-top: 25px;
           width: 100%;
@@ -228,14 +269,14 @@ const AboutUsSlider = () => {
         .image-container {
           position: absolute;
           top: 20px;
-          ${locale ==="ar" ? "left: 20px;" : "right: 20px;"}
+          ${language === "ar" ? "left: 20px;" : "right: 20px;"}
           z-index: 1;
         }
 
         .slide-content {
           position: absolute;
-          top: ${isSmallLayout? "10" : "20"};
-          ${locale ==="ar" ? "right: 20px;" : "left: 20px;"}
+          top: ${isSmallLayout ? "10" : "20"};
+          ${language === "ar" ? "right: 20px;" : "left: 20px;"}
           z-index: 5;
           width: 80%;
           display: flex;
@@ -264,29 +305,29 @@ const AboutUsSlider = () => {
         }
 
         .dots {
-            display: flex;
-            padding: 10px 0;
-            justify-content: center;
-          }
-          
-          .dot {
-            border: none;
-            width: 30px;
-            padding: 1.5px;
-            max-height: 5px;
-            background: rgba(217, 217, 217, 1);
-            border-radius: 5px;
-            margin: 0 3px;
-            cursor: pointer;
-          }
-          
-          .dot:focus {
-            outline: none;
-          }
-          
-          .dot.active {
-            background: rgba(191, 33, 50, 1);
-          }
+          display: flex;
+          padding: 10px 0;
+          justify-content: center;
+        }
+
+        .dot {
+          border: none;
+          width: 30px;
+          padding: 1.5px;
+          max-height: 5px;
+          background: rgba(217, 217, 217, 1);
+          border-radius: 5px;
+          margin: 0 3px;
+          cursor: pointer;
+        }
+
+        .dot:focus {
+          outline: none;
+        }
+
+        .dot.active {
+          background: rgba(191, 33, 50, 1);
+        }
       `}</style>
     </div>
   );

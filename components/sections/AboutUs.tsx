@@ -2,16 +2,16 @@
 
 import AboutUsSlider from "../AboutUsSlider";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
+import { translate, getLanguage } from '../../hooks/translation';
 
 const AboutUs = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
+  const language = getLanguage();
 
   return (
     <div className="about-us" id="about-us">
-      <h3 className="TitleStyle">{t('aboutUs.title')}</h3>
-      <p className="InfoTextStyle">{t('aboutUs.description')}</p>
+      <h3 className="TitleStyle">{translate('aboutUsTitle', language)}</h3>
+      <p className="InfoTextStyle">{translate('aboutUsDescription', language)}</p>
       <AboutUsSlider />
       <style jsx>{`
       .about-us{
