@@ -1,7 +1,7 @@
 "use client";
 
 import { FaRegCopyright } from "react-icons/fa";
-import { HiOutlineLocationMarker, HiOutlineMail } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { BiPhone } from "react-icons/bi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import logo from "../../assets/logo.png";
@@ -31,15 +31,15 @@ const Footer = () => {
         <div className="part-3">
         <p>{translate('fContactUsTitle', language)}</p>
         <div className="contact-info">
-            <p className="contact-info-title"><HiOutlineLocationMarker /> <span>{translate('fContactUsSubTitle1', language)}</span> </p>
+            <p className="contact-info-title"><HiOutlineLocationMarker /> <span className="contact-us-sub-title">{translate('fContactUsSubTitle1', language)}</span> </p>
             <p className="p-content">{translate('fContactUsText1', language)}</p>
         </div>
         <div className="contact-info">
-            <p className="contact-info-title"><HiOutlineLocationMarker /> <span>{translate('fContactUsSubTitle2', language)}</span> </p>
+            <p className="contact-info-title"><HiOutlinePhone /> <span className="contact-us-sub-title">{translate('fContactUsSubTitle2', language)}</span> </p>
             <p className="p-content">{translate('fContactUsText2', language)}</p>
         </div>
         <div className="contact-info">
-            <p className="contact-info-title"><HiOutlineLocationMarker /> <span>{translate('fContactUsSubTitle3', language)}</span> </p>
+            <p className="contact-info-title"><HiOutlineMail /> <span className="contact-us-sub-title">{translate('fContactUsSubTitle3', language)}</span> </p>
             <p className="p-content">{translate('fContactUsText3', language)}</p>
         </div>
 
@@ -142,16 +142,23 @@ const Footer = () => {
         }
 
         .contact-info p span{
-            margin-right: 5px;
             font-size: 16px;
+            ${language === "en" ? "margin-left: 5px;" : "margin-right: 5px;"}
         }
 
         .contact-info-title{
             color: #000;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 5px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
 
+        .contact-us-sub-title{
+          font-size: 12px;
+          margin-start: 5px;
         }
 
         .p-content{
