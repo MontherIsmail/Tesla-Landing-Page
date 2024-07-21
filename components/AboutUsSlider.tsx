@@ -6,7 +6,6 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import commaIcons from "../assets/commaIcons.png";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useRouter } from "next/router";
 import { translate, getLanguage } from "../hooks/translation";
 
 const AboutUsSlider = () => {
