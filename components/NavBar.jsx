@@ -6,13 +6,11 @@ import logo from "../assets/logo.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import LanguageSwitcher from './LanguageSwitcher';
 import { translate, getLanguage } from '../hooks/translation';
-// import useTranslation from '../hooks/translation';
 
 
 const NavBar = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
   const language = getLanguage();
-  // const { language, translate } = useTranslation();
   
   const SmallNavStyle = {
     height: "80px",
@@ -66,9 +64,18 @@ const NavBar = () => {
           {translate("navContactUs", language)}
           </Nav.Link>
         </Nav>
+<<<<<<< HEAD:components/NavBar.jsx
         <LanguageSwitcher />
         <Nav className={language === "ar"? "me-auto" : "english-margin"}>
           <div style={isSmallLayout ? { margin: "20px" } : {marginLeft: "30px"}}>
+=======
+        <div className="lan-container">
+        <Link href="/ar" locale="ar"><button>العربية</button></Link>
+        <Link href="/en" locale="en"><button>English</button></Link>
+        </div>
+        <Nav className={locale === "ar"? "me-auto" : "english-margin"}>
+          <div style={isSmallLayout ? { margin: "20px" } : {}}>
+>>>>>>> aa9ec85a50a7c07d9e6ea2ba3eeecfe642e9b6c1:components/NavBar.tsx
             <BookButton
               title={translate('buttonText', language)}
               dimensions={["40px", "190px"]}
@@ -78,7 +85,22 @@ const NavBar = () => {
       </Navbar.Collapse>
       <style jsx>{`
         .english-margin{
-          margin: 0 100px;
+          margin-right: 100px;
+        }
+        .lan-container{
+          margin: 0 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .lan-container button{
+          border: none;
+          border-radius: 5px;
+          background-color: #BF2132;
+          color: #fff;
+          padding: 4px;
+          font-size: 14px;
+          margin: 0 2px;
         }
       `}</style>
     </Navbar>
