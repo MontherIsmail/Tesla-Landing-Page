@@ -2,7 +2,7 @@
 
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
-import { useRouter } from 'next/router';
+import { getLanguage } from "../hooks/translation";
 
 interface BookButtonProps {
   title: string;
@@ -10,8 +10,7 @@ interface BookButtonProps {
 }
 
 const BookButton = ({ title, dimensions }: BookButtonProps) => {
-  const router = useRouter();
-  const { locale } = router;
+  const language = getLanguage();
   const BookButtonStyle = {
     width: dimensions[1],
     height: dimensions[0],
@@ -25,7 +24,7 @@ const BookButton = ({ title, dimensions }: BookButtonProps) => {
   };
   return (
     <button style={BookButtonStyle}>
-      <span>{title}</span> {locale === "ar" ?<BsArrowLeftCircle /> : <BsArrowRightCircle />}
+      <span>{title}</span> {language === "ar" ?<BsArrowLeftCircle /> : <BsArrowRightCircle />}
       <style jsx>{`
         span{
           margin-left: 10px;

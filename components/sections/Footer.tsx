@@ -1,61 +1,60 @@
 "use client";
 
 import { FaRegCopyright } from "react-icons/fa";
-import { HiOutlineLocationMarker, HiOutlineMail } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { BiPhone } from "react-icons/bi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import logo from "../../assets/logo.png";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
-
+import { translate, getLanguage } from '../../hooks/translation';
 
 const Footer = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
+  const language = getLanguage();
 
   return (
     <div className="footer-style">
       <div className="footer-body">
-        <div className="part-1">
+        <div className={language === "ar" ? "part-1" : "part-1-en"}>
           <Image src={logo} alt="logo" width={150} />
-          <p>{t('footer.description')}</p>
+          <p>{translate('fDescription', language)}</p>
         </div>
         <div className="part-2">
-            <p className="contact-info-title">{t('footer.services.title')}</p>
-            <p className="p">{t('footer.services.text1')}</p>
-            <p className="p">{t('footer.services.text2')}</p>
-            <p className="p">{t('footer.services.text3')}</p>
-            <p className="p">{t('footer.services.text4')}</p>
-            <p className="p">{t('footer.services.text5')}</p>
+            <p className="contact-info-title">{translate('fSerTitle', language)}</p>
+            <p className="p">{translate('fSerText1', language)}</p>
+            <p className="p">{translate('fSerText2', language)}</p>
+            <p className="p">{translate('fSerText3', language)}</p>
+            <p className="p">{translate('fSerText4', language)}</p>
+            <p className="p">{translate('fSerText5', language)}</p>
         </div>
         <div className="part-3">
-        <p>{t('footer.contactUs.title')}</p>
+        <p>{translate('fContactUsTitle', language)}</p>
         <div className="contact-info">
-            <p className="contact-info-title"><HiOutlineLocationMarker /> <span>{t('footer.contactUs.subTitle1')}</span> </p>
-            <p className="p-content">{t('footer.contactUs.text1')}</p>
+            <p className="contact-info-title"><HiOutlineLocationMarker /> <span className="contact-us-sub-title">{translate('fContactUsSubTitle1', language)}</span> </p>
+            <p className="p-content">{translate('fContactUsText1', language)}</p>
         </div>
         <div className="contact-info">
-            <p className="contact-info-title"><HiOutlineLocationMarker /> <span>{t('footer.contactUs.subTitle2')}</span> </p>
-            <p className="p-content">{t('footer.contactUs.text2')}</p>
+            <p className="contact-info-title"><HiOutlinePhone /> <span className="contact-us-sub-title">{translate('fContactUsSubTitle2', language)}</span> </p>
+            <p className="p-content">{translate('fContactUsText2', language)}</p>
         </div>
         <div className="contact-info">
-            <p className="contact-info-title"><HiOutlineLocationMarker /> <span>{t('footer.contactUs.subTitle3')}</span> </p>
-            <p className="p-content">{t('footer.contactUs.text3')}</p>
+            <p className="contact-info-title"><HiOutlineMail /> <span className="contact-us-sub-title">{translate('fContactUsSubTitle3', language)}</span> </p>
+            <p className="p-content">{translate('fContactUsText3', language)}</p>
         </div>
 
         </div>
         <div className="part-4">
-        <p className="contact-info-title">{t('footer.timeOfwork.title')}</p>
+        <p className="contact-info-title">{translate('TOWtitle', language)}</p>
         <div className="contact-info">
-            <p className="contact-info-title"><AiOutlineClockCircle /> <span>{t('footer.timeOfwork.subTitle')}</span> </p>
-            <p className="p-content">{t('footer.timeOfwork.text')}</p>
+            <p className="contact-info-title"><AiOutlineClockCircle /> <span>{translate('TOWsubTitle', language)}</span> </p>
+            <p className="p-content">{translate('TOWtext', language)}</p>
         </div>
         </div>
       </div>
       <div className="footer-c">
         <p>
-        {t('footer.copyright.title1')}<FaRegCopyright /> {t('footer.copyright.title2')}
+        {translate('copyrightTitle1', language)}<FaRegCopyright /> {translate('copyrightTitle2', language)}
         </p>
       </div>
       <style jsx>{`
@@ -92,11 +91,25 @@ const Footer = () => {
             margin-left: ${isSmallLayout? "20px" : "70px"};
             margin-bottom: ${isSmallLayout? "20px" : ""};
         }
+        .part-1-en{
+          text-align: start;
+          width: ${isSmallLayout ? "100%" : "33%"};
+          margin-left: ${isSmallLayout? "20px" : "90px"};
+          margin-bottom: ${isSmallLayout? "20px" : ""};
+      }
         .part-1 p{
             margin-top: 28px;
             line-height: 30px;
             font-size: 14px;
             color: rgba(79, 79, 79, 1);
+            margin-bottom: 20px;
+        }
+        .part-1-en p{
+          margin-top: 18px;
+          line-height: 26px;
+          font-size: 13px;
+          color: rgba(79, 79, 79, 1);
+          margin-bottom: 20px;
         }
         .part-2{
             margin-left: ${isSmallLayout? "20px" : "100px"};
@@ -129,16 +142,23 @@ const Footer = () => {
         }
 
         .contact-info p span{
-            margin-right: 5px;
             font-size: 16px;
+            ${language === "en" ? "margin-left: 5px;" : "margin-right: 5px;"}
         }
 
         .contact-info-title{
             color: #000;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 5px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
 
+        .contact-us-sub-title{
+          font-size: 12px;
+          margin-start: 5px;
         }
 
         .p-content{

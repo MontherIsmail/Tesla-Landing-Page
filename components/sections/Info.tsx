@@ -6,32 +6,29 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineLocationMarker, HiOutlineMail } from "react-icons/hi";
 import { BiPhone } from "react-icons/bi";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useTranslate from '../../hooks/useTranslate';
-import { useRouter } from 'next/router';
+import { translate, getLanguage } from '../../hooks/translation';
 
 const Info = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
   const isMobileLayout = useMediaQuery("(max-width:817px)");
   const isBigScreenLayout = useMediaQuery("(min-width:1700px)");
-  const { t } = useTranslate('home');
-  const router = useRouter();
-  const { locale } = router;
+  const language = getLanguage();
 
   return (
     <div id="home" className={isSmallLayout? "SmallInfoSectionStyle":"InfoSectionStyle"}>
       <div className={isSmallLayout ? "SmallSliderAndContent" :"SliderAndContent"}>
         <div className={isSmallLayout ? "SmallContentStyle" :"ContentStyle"}>
-          <h2 className="TitleStyle">{t('info.title')}</h2>
+          <h2 className="TitleStyle">{translate('infoTitle', language)}</h2>
           <h2 style={{marginBottom: "15px"}} className="TitleStyle">
-          {t('info.subtitle')}
-            <span style={{ color: "#BF2132" }}> {t('info.secSubtitle')}</span>
+          {translate('infoSubtitle', language)}
+            <span style={{ color: "#BF2132" }}> {translate('infoSecSubtitle',language)}</span>
           </h2>
           <p style={{marginBottom: '10px'}} className="TextStyle">
-          {t('info.description')}
+          {translate('infoDescription', language)}
           </p>
           <p style={{marginBottom: "30px"}} className="TextStyle">
-          {t('info.secDescription')}</p>
-          <BookButton title={t("info.buttonText")} dimensions={["48px", "190px"]} />
+          {translate('infoSecDescription', language)}</p>
+          <BookButton title={translate("buttonText", language)} dimensions={["48px", "190px"]} />
         </div>
         {isMobileLayout ? "" : <div className={isSmallLayout ?"smallCarSliderAndbackground" :"carSliderAndbackground"}>
           <div className={isSmallLayout ? "smaill-parallelogram-background":"parallelogram-background"}></div>
@@ -44,30 +41,30 @@ const Info = () => {
         <div className={isSmallLayout? "small-parallelogram-content":"parallelogram-content"}>
           <div className={isSmallLayout? "smallPart" :"part part-border"}>
             <p className="parallelogram-title">
-              <AiOutlineClockCircle /> <span>{t('info.workTime')}</span>{" "}
+              <AiOutlineClockCircle /> <span>{translate('infoWorkTime', language)}</span>{" "}
             </p>
             <p className="parallelogram-text">
-            {t('info.time')}
+            {translate('infoTime', language)}
             </p>
           </div>
           <div className={isSmallLayout? "smallPart" :"part part-border"}>
             <p className="parallelogram-title">
               <HiOutlineLocationMarker />
-              <span>{t('info.location')}</span>{" "}
+              <span>{translate('infoLocation', language)}</span>{" "}
             </p>
-            <p className="parallelogram-text">{t('info.locationDetails')}</p>
+            <p className="parallelogram-text">{translate('infoLocationDetails', language)}</p>
           </div>
           <div className={isSmallLayout? "smallPart" :"part part-border"}>
             <p className="parallelogram-title">
-              <HiOutlineMail /> <span>{t('info.email')}</span>{" "}
+              <HiOutlineMail /> <span>{translate('infoEmail', language)}</span>{" "}
             </p>
-            <p className="parallelogram-text">{t('info.emailDetails')}</p>
+            <p className="parallelogram-text">{translate('infoEmailDetails', language)}</p>
           </div>
           <div className={isSmallLayout? "smallPart" :"part"}>
             <p className="parallelogram-title">
-              <BiPhone /> <span>{t('info.phoneNumbertitle')}</span>{" "}
+              <BiPhone /> <span>{translate('infoPhoneNumbertitle', language)}</span>{" "}
             </p>
-            <p className="parallelogram-text">{t('info.phoneNumber')}</p>
+            <p className="parallelogram-text">{translate('infoPhoneNumber', language)}</p>
           </div>
         </div>
       </div>
@@ -190,7 +187,7 @@ const Info = () => {
           margin-right: 35px;
         }
         .part-border {
-          ${locale === "ar" ? 
+          ${language === "ar" ? 
           "border-left: solid 1px rgba(240, 240, 240, 1);"  
           :"border-right: solid 1px rgba(240, 240, 240, 1);"}
         }
@@ -254,17 +251,6 @@ const Info = () => {
   );
 };
 
-// export async function getStaticProps({ locale }) {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, [
-//         'common',
-//         'footer',
-//       ])), 
-//       // Will be passed to the page component as props
-//     },
-//   }
-// }
 
 
 export default Info;

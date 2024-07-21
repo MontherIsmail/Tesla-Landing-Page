@@ -8,9 +8,11 @@ import ourWork2 from "../assets/ourWork2.png";
 import ourWork3 from "../assets/ourWork3.png";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { getLanguage } from '../hooks/translation';
 
 const WorksSlider = () => {
+  const language = getLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -33,8 +35,6 @@ const WorksSlider = () => {
     slides: { perView: 1 },
   });
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const router = useRouter();
-  const { locale } = router;
 
   return (
     <div>
@@ -51,7 +51,7 @@ const WorksSlider = () => {
                 e.stopPropagation() || instanceRef.current?.next()
               }
             >
-              {locale === "ar" ? <BsArrowRight /> : <BsArrowLeft />}
+              {language === "ar" ? <BsArrowRight /> : <BsArrowLeft />}
             </button>
             <button
               className="navigate-btn"
@@ -60,7 +60,7 @@ const WorksSlider = () => {
                 e.stopPropagation() || instanceRef.current?.prev()
               }
             >
-              {locale === "ar" ? <BsArrowLeft /> : <BsArrowRight />}
+              {language === "ar" ? <BsArrowLeft /> : <BsArrowRight />}
             </button>
           </div>
         </div>

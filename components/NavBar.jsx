@@ -3,16 +3,15 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from 'react-bootstrap/Navbar';
 import BookButton from "./BookButton";
 import logo from "../assets/logo.png";
-import { useRouter } from 'next/router';
-import useTranslate from '../hooks/useTranslate';
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Link from "next/link";
+import LanguageSwitcher from './LanguageSwitcher';
+import { translate, getLanguage } from '../hooks/translation';
+
 
 const NavBar = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
-  const { t } = useTranslate('home');
-  const router = useRouter();
-  const { locale } = router;
+  const language = getLanguage();
+  
   const SmallNavStyle = {
     height: "80px",
     backgroundColor: "#fff",
@@ -27,8 +26,8 @@ const NavBar = () => {
   };
 
   const NavLinkStyle = isSmallLayout
-    ? { margin: "10px 50px"}
-    : { marginLeft: "20px"};
+    ? { margin: "10px 50px" }
+    : { marginLeft: "18px" };
 
   return (
     <Navbar
@@ -47,32 +46,38 @@ const NavBar = () => {
       <Navbar.Collapse style={isSmallLayout ? {backgroundColor: "#A1A0AE", zIndex: "10"} : {}} id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link style={NavLinkStyle} href="#services">
-          {t("navbar.services")}
+          {translate("navServices", language)}
           </Nav.Link> 
           <Nav.Link style={NavLinkStyle} href="#agents">
-          {t("navbar.Agents")}
+          {translate("navAgents", language)}
           </Nav.Link>
           <Nav.Link style={NavLinkStyle} href="#certified">
-          {t("navbar.certified")}
+          {translate("navCertified", language)}
           </Nav.Link>
           <Nav.Link style={NavLinkStyle} href="#our-works">
-          {t("navbar.ourWorks")}
+          {translate("navOurWorks", language)}
           </Nav.Link>
           <Nav.Link style={NavLinkStyle} href="#about-us">
-          {t("navbar.testimonials")}
+          {translate("navTestimonials", language)}
           </Nav.Link>
           <Nav.Link style={isSmallLayout ? { margin: "10px 50px" } : {}} href="#contact-us">
-          {t("navbar.contactUs")}
+          {translate("navContactUs", language)}
           </Nav.Link>
         </Nav>
+<<<<<<< HEAD:components/NavBar.jsx
+        <LanguageSwitcher />
+        <Nav className={language === "ar"? "me-auto" : "english-margin"}>
+          <div style={isSmallLayout ? { margin: "20px" } : {marginLeft: "30px"}}>
+=======
         <div className="lan-container">
         <Link href="/ar" locale="ar"><button>العربية</button></Link>
         <Link href="/en" locale="en"><button>English</button></Link>
         </div>
         <Nav className={locale === "ar"? "me-auto" : "english-margin"}>
           <div style={isSmallLayout ? { margin: "20px" } : {}}>
+>>>>>>> aa9ec85a50a7c07d9e6ea2ba3eeecfe642e9b6c1:components/NavBar.tsx
             <BookButton
-              title={t("info.buttonText")}
+              title={translate('buttonText', language)}
               dimensions={["40px", "190px"]}
             />
           </div>

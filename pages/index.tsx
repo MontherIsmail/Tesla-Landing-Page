@@ -1,5 +1,4 @@
 import React from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { 
   Info, 
   Services, 
@@ -11,13 +10,15 @@ import {
   Footer,
 } from "../components/sections";
 import { NavBar } from "../components";
-import { useRouter } from 'next/router';
+import { getLanguage } from '../hooks/translation';
+// import { useTranslation } from '../hooks/translation';
 
 const Home = () => {
-  const router = useRouter();
-  const { locale } = router;
+  const language = getLanguage();
+  // const { language } = useTranslation();
+  
   return (
-    <div dir={locale === "ar" ? "rtl" : "ltr"}>
+    <div dir={language === "ar" ? "rtl" : "ltr"}>
       <NavBar />
       <Info />
       <Services />
@@ -31,12 +32,5 @@ const Home = () => {
   );
 };
 
-export async function getStaticProps({ locale = "en" }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["home", "common"])),
-    },
-  };
-}
 
 export default Home;
