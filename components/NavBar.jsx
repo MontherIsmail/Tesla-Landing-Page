@@ -64,18 +64,9 @@ const NavBar = () => {
           {translate("navContactUs", language)}
           </Nav.Link>
         </Nav>
-<<<<<<< HEAD:components/NavBar.jsx
         <LanguageSwitcher />
         <Nav className={language === "ar"? "me-auto" : "english-margin"}>
           <div style={isSmallLayout ? { margin: "20px" } : {marginLeft: "30px"}}>
-=======
-        <div className="lan-container">
-        <Link href="/ar" locale="ar"><button>العربية</button></Link>
-        <Link href="/en" locale="en"><button>English</button></Link>
-        </div>
-        <Nav className={locale === "ar"? "me-auto" : "english-margin"}>
-          <div style={isSmallLayout ? { margin: "20px" } : {}}>
->>>>>>> aa9ec85a50a7c07d9e6ea2ba3eeecfe642e9b6c1:components/NavBar.tsx
             <BookButton
               title={translate('buttonText', language)}
               dimensions={["40px", "190px"]}
