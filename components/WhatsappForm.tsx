@@ -28,9 +28,9 @@ export default function WhatsappForm({ carDetails }: any) {
       setShowToasts(false);
       const { carNumber, kinuy_mishari, shnat_yitzur, tozeret_nm } = carDetails;
 
-      const formattedMessage = `Name: ${name}\nPhone: ${phoneNumber}\n Car Number: ${carNumber}\Car Name: ${kinuy_mishari}\n Trade Name: ${shnat_yitzur}\n Car Modal: ${tozeret_nm} \n Date and Time: ${date}\n\nMessage:\n${message}`;
+      const formattedMessage = `Name: ${name}\nPhone: ${phoneNumber}\n Car Number: ${carNumber}\nCar Name: ${kinuy_mishari}\n Car Modal: ${shnat_yitzur}\n Trade Name: ${tozeret_nm} \n Date and Time: ${date}\n\nMessage:\n${message}`;
       const encodedMessage = encodeURIComponent(formattedMessage);
-      const whatsappNumber = "+972548993552";
+      const whatsappNumber = "+972597804383";
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
       window.open(whatsappUrl, "_blank");
@@ -74,7 +74,6 @@ export default function WhatsappForm({ carDetails }: any) {
           onChange={(e) => setDate(e.target.value)}
           required
         />
-
       </div>
 
       <div className="write-container">
@@ -142,6 +141,9 @@ export default function WhatsappForm({ carDetails }: any) {
           margin-top: 20px;
           margin-bottom: 5px;
         }
+          ::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+      }
       `}</style>
     </form>
   );
