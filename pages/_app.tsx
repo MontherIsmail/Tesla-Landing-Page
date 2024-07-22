@@ -4,18 +4,13 @@ import { appWithTranslation } from "next-i18next";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 import Head from 'next/head';
-import { getLanguage, setLanguage } from '../hooks/translation';
-// import useTranslation from '../hooks/useTranslation';
+import ScrollToTop from "../components/ScrollToTop";
 
 const careemFont = localFont({ src: "../fonts/CareemFont.otf" });
 export const metadata: Metadata = {
   title: "Tesla",
   description: "Tesla",
 };
-
-// const { setLanguage, language } = useTranslation();
-
-// setLanguage(language);
 
  function MyApp({ Component, pageProps }) {
   return <>
@@ -24,6 +19,7 @@ export const metadata: Metadata = {
   </Head>
   <main style={careemFont.style} >
     <Component {...pageProps} />
+    <ScrollToTop />
   </main>
   </>
 }

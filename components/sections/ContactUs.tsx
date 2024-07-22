@@ -7,6 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { search } from "../../pages/api/search";
 import Toasts from "../Toast";
 import { translate, getLanguage } from '../../hooks/translation';
+import WhatsappForm from "../WhatsappForm";
 
 const ContactUs = () => {
   const [carNumber, setCarNumber] = useState<string>('');
@@ -78,21 +79,14 @@ const ContactUs = () => {
           <p>{carDetails.tozeret_nm}</p>
           </div>
         </div>}
-          <label style={{marginTop: "30px"}} htmlFor="write">{translate('contactUsWriteLabel', language)}</label>
-          <textarea
-            id="write"
-            name="write"
-            className="gray-input write"
-            placeholder={translate('contactUsWritePlaceholder', language)}
-            style={{ width: "100%" }}
-          />
+        <WhatsappForm carDetails={carDetails} />
         </div>
-        <button className="send-btn">{translate('contactUsSendBtn', language)}</button>
+
       </div>
       <style jsx>{`
         .contact-us {
           width: 100%;
-          height: 720px;
+          height: 960px;
           position: relative;
           margin-top: 120px;
         }
@@ -223,7 +217,6 @@ const ContactUs = () => {
           width: ${isSmallLayout? "100%" : "100%"};
           color: #fff;
           padding: 10px 22px;
-          margin-bottom: 50px;
         }
 
         .result-car-details p{
