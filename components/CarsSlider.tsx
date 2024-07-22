@@ -2,6 +2,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import car1 from "../assets/car1.png";
+import car2 from "../assets/car2.png";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -52,19 +53,19 @@ const CarsSlider = () => {
           <Image src={car1} alt="car" width={isSmallLayout ? 450 : 550} />
         </div>
         <div className="keen-slider__slide number-slide2">
-          <Image src={car1} alt="car" width={isSmallLayout ? 450 : 550} />
+          <Image src={car2} alt="car" width={isSmallLayout ? 450 : 550} />
         </div>
         <div className="keen-slider__slide number-slide3">
           <Image src={car1} alt="car" width={isSmallLayout ? 450 : 550} />
         </div>
         <div className="keen-slider__slide number-slide4">
-          <Image src={car1} alt="car" width={isSmallLayout ? 450 : 550} />
+          <Image src={car2} alt="car" width={isSmallLayout ? 450 : 550} />
         </div>
         <div className="keen-slider__slide number-slide5">
           <Image src={car1} alt="car" width={isSmallLayout ? 450 : 550} />
         </div>
         <div className="keen-slider__slide number-slide6">
-          <Image src={car1} alt="car" width={isSmallLayout ? 450 : 550} />
+          <Image src={car2} alt="car" width={isSmallLayout ? 450 : 550} />
         </div>
         <style jsx>{`
           [class^="number-slide"],

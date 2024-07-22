@@ -8,7 +8,6 @@ import ourWork2 from "../assets/ourWork2.png";
 import ourWork3 from "../assets/ourWork3.png";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useRouter } from 'next/router';
 import { getLanguage } from '../hooks/translation';
 
 const WorksSlider = () => {
