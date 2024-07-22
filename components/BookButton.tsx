@@ -3,13 +3,15 @@
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { BsArrowRightCircle } from "react-icons/bs";
 import { getLanguage } from "../hooks/translation";
+import Nav from "react-bootstrap/Nav";
 
 interface BookButtonProps {
   title: string;
   dimensions: any;
+  href: string;
 }
 
-const BookButton = ({ title, dimensions }: BookButtonProps) => {
+const BookButton = ({ title, dimensions, href }: BookButtonProps) => {
   const language = getLanguage();
   const BookButtonStyle = {
     width: dimensions[1],
@@ -23,7 +25,7 @@ const BookButton = ({ title, dimensions }: BookButtonProps) => {
     alignItems: "center",
   };
   return (
-    <button style={BookButtonStyle}>
+    <Nav.Link style={BookButtonStyle} href={href}>
       <span>{title}</span> {language === "ar" ?<BsArrowLeftCircle /> : <BsArrowRightCircle />}
       <style jsx>{`
         span{
@@ -31,7 +33,7 @@ const BookButton = ({ title, dimensions }: BookButtonProps) => {
           margin-right: 10px;
         }
       `}</style>
-    </button>
+    </Nav.Link>
   );
 };
 

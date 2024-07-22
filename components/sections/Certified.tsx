@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import לוגו from "../../assets/לוגו.png";
+import secLogo from "../../assets/secLogo.png";
 import ThePhoenixHoldings from "../../assets/ThePhoenixHoldings.png";
 import Migdal from "../../assets/Migdal.png";
 import trustInsurance from "../../assets/trustInsurance.png";
@@ -23,7 +23,7 @@ const Certified = () => {
         <div className="first-row">
         <div className="componey-logo">
           <Image
-            src={לוגו}
+            src={secLogo}
             alt="Componey Logo"
             className="logo-style"
             width={100}

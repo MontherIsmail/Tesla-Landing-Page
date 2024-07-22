@@ -1,22 +1,20 @@
 import React from "react";
-import { 
-  Info, 
-  Services, 
-  Agents, 
-  Certified, 
-  OurWorks, 
-  AboutUs, 
-  ContactUs, 
+import {
+  Info,
+  Services,
+  Agents,
+  Certified,
+  OurWorks,
+  AboutUs,
+  ContactUs,
   Footer,
 } from "../components/sections";
 import { NavBar } from "../components";
-import { getLanguage } from '../hooks/translation';
-// import { useTranslation } from '../hooks/translation';
+import { getLanguage } from "../hooks/translation";
 
 const Home = () => {
   const language = getLanguage();
-  // const { language } = useTranslation();
-  
+
   return (
     <div dir={language === "ar" ? "rtl" : "ltr"}>
       <NavBar />
@@ -31,6 +29,5 @@ const Home = () => {
     </div>
   );
 };
-
 
 export default Home;

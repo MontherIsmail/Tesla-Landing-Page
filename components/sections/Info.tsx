@@ -6,7 +6,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineLocationMarker, HiOutlineMail } from "react-icons/hi";
 import { BiPhone } from "react-icons/bi";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { translate, getLanguage } from '../../hooks/translation';
+import { translate, getLanguage } from "../../hooks/translation";
 
 const Info = () => {
   const isSmallLayout = useMediaQuery("(max-width:1020px)");
@@ -15,56 +15,99 @@ const Info = () => {
   const language = getLanguage();
 
   return (
-    <div id="home" className={isSmallLayout? "SmallInfoSectionStyle":"InfoSectionStyle"}>
-      <div className={isSmallLayout ? "SmallSliderAndContent" :"SliderAndContent"}>
-        <div className={isSmallLayout ? "SmallContentStyle" :"ContentStyle"}>
-          <h2 className="TitleStyle">{translate('infoTitle', language)}</h2>
-          <h2 style={{marginBottom: "15px"}} className="TitleStyle">
-          {translate('infoSubtitle', language)}
-            <span style={{ color: "#BF2132" }}> {translate('infoSecSubtitle',language)}</span>
+    <div
+      id="home"
+      className={isSmallLayout ? "SmallInfoSectionStyle" : "InfoSectionStyle"}
+    >
+      <div
+        className={isSmallLayout ? "SmallSliderAndContent" : "SliderAndContent"}
+      >
+        <div className={isSmallLayout ? "SmallContentStyle" : "ContentStyle"}>
+          <h2 className="TitleStyle">{translate("infoTitle", language)}</h2>
+          <h2 style={{ marginBottom: "15px" }} className="TitleStyle">
+            {translate("infoSubtitle", language)}
+            <span style={{ color: "#BF2132" }}>
+              {" "}
+              {translate("infoSecSubtitle", language)}
+            </span>
           </h2>
-          <p style={{marginBottom: '10px'}} className="TextStyle">
-          {translate('infoDescription', language)}
+          <p style={{ marginBottom: "10px" }} className="TextStyle">
+            {translate("infoDescription", language)}
           </p>
-          <p style={{marginBottom: "30px"}} className="TextStyle">
-          {translate('infoSecDescription', language)}</p>
-          <BookButton title={translate("buttonText", language)} dimensions={["48px", "190px"]} />
+          <p style={{ marginBottom: "30px" }} className="TextStyle">
+            {translate("infoSecDescription", language)}
+          </p>
+          <BookButton
+            title={translate("buttonText", language)}
+            dimensions={["48px", "190px"]}
+            href="#contact-us"
+          />
         </div>
-        {isMobileLayout ? "" : <div className={isSmallLayout ?"smallCarSliderAndbackground" :"carSliderAndbackground"}>
-          <div className={isSmallLayout ? "smaill-parallelogram-background":"parallelogram-background"}></div>
-          <div className="carSliderContainer">
-            <CarsSlider />
+        {isMobileLayout ? (
+          ""
+        ) : (
+          <div
+            className={
+              isSmallLayout
+                ? "smallCarSliderAndbackground"
+                : "carSliderAndbackground"
+            }
+          >
+            <div
+              className={
+                isSmallLayout
+                  ? "smaill-parallelogram-background"
+                  : "parallelogram-background"
+              }
+            ></div>
+            <div className="carSliderContainer">
+              <CarsSlider />
+            </div>
           </div>
-        </div>}
+        )}
       </div>
       <div className={isSmallLayout ? "smallParallelogram" : "parallelogram"}>
-        <div className={isSmallLayout? "small-parallelogram-content":"parallelogram-content"}>
-          <div className={isSmallLayout? "smallPart" :"part part-border"}>
+        <div
+          className={
+            isSmallLayout
+              ? "small-parallelogram-content"
+              : "parallelogram-content"
+          }
+        >
+          <div className={isSmallLayout ? "smallPart" : "part part-border"}>
             <p className="parallelogram-title">
-              <AiOutlineClockCircle /> <span>{translate('infoWorkTime', language)}</span>{" "}
+              <AiOutlineClockCircle />{" "}
+              <span>{translate("infoWorkTime", language)}</span>{" "}
             </p>
             <p className="parallelogram-text">
-            {translate('infoTime', language)}
+              {translate("infoTime", language)}
             </p>
           </div>
-          <div className={isSmallLayout? "smallPart" :"part part-border"}>
+          <div className={isSmallLayout ? "smallPart" : "part part-border"}>
             <p className="parallelogram-title">
               <HiOutlineLocationMarker />
-              <span>{translate('infoLocation', language)}</span>{" "}
+              <span>{translate("infoLocation", language)}</span>{" "}
             </p>
-            <p className="parallelogram-text">{translate('infoLocationDetails', language)}</p>
+            <p className="parallelogram-text">
+              {translate("infoLocationDetails", language)}
+            </p>
           </div>
-          <div className={isSmallLayout? "smallPart" :"part part-border"}>
+          <div className={isSmallLayout ? "smallPart" : "part part-border"}>
             <p className="parallelogram-title">
-              <HiOutlineMail /> <span>{translate('infoEmail', language)}</span>{" "}
+              <HiOutlineMail /> <span>{translate("infoEmail", language)}</span>{" "}
             </p>
-            <p className="parallelogram-text">{translate('infoEmailDetails', language)}</p>
+            <p className="parallelogram-text">
+              {translate("infoEmailDetails", language)}
+            </p>
           </div>
-          <div className={isSmallLayout? "smallPart" :"part"}>
+          <div className={isSmallLayout ? "smallPart" : "part"}>
             <p className="parallelogram-title">
-              <BiPhone /> <span>{translate('infoPhoneNumbertitle', language)}</span>{" "}
+              <BiPhone />{" "}
+              <span>{translate("infoPhoneNumbertitle", language)}</span>{" "}
             </p>
-            <p className="parallelogram-text">{translate('infoPhoneNumber', language)}</p>
+            <p className="parallelogram-text">
+              {translate("infoPhoneNumber", language)}
+            </p>
           </div>
         </div>
       </div>
@@ -86,7 +129,7 @@ const Info = () => {
           justify-content: space-between;
           align-items: center;
         }
-        .SmallSliderAndContent{
+        .SmallSliderAndContent {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
@@ -99,7 +142,7 @@ const Info = () => {
           flex-direction: column;
           width: 40%;
         }
-        .SmallContentStyle{
+        .SmallContentStyle {
           display: flex;
           justify-content: center;
           align-items: start;
@@ -138,7 +181,7 @@ const Info = () => {
           background: #fff;
           border-radius: 15px;
           box-shadow: -5px 0px 50px 0px rgba(0, 0, 0, 0.1);
-          margin-top: ${isMobileLayout ? "0" :"220px"};
+          margin-top: ${isMobileLayout ? "0" : "220px"};
         }
         .mobileParallelogram {
           width: 100%;
@@ -187,9 +230,9 @@ const Info = () => {
           margin-right: 35px;
         }
         .part-border {
-          ${language === "ar" ? 
-          "border-left: solid 1px rgba(240, 240, 240, 1);"  
-          :"border-right: solid 1px rgba(240, 240, 240, 1);"}
+          ${language === "ar"
+            ? "border-left: solid 1px rgba(240, 240, 240, 1);"
+            : "border-right: solid 1px rgba(240, 240, 240, 1);"}
         }
         .parallelogram-title {
           margin: 0;
@@ -227,7 +270,7 @@ const Info = () => {
           z-index: 1;
         }
 
-        .carSliderContainer{
+        .carSliderContainer {
           position: absolute;
           top: 20%;
           left: 0;
@@ -250,7 +293,5 @@ const Info = () => {
     </div>
   );
 };
-
-
 
 export default Info;

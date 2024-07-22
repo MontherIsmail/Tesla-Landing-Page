@@ -70,6 +70,7 @@ const NavBar = () => {
             <BookButton
               title={translate('buttonText', language)}
               dimensions={["40px", "190px"]}
+              href="#contact-us"
             />
           </div>
         </Nav>
