@@ -71,13 +71,13 @@ const AboutUsSlider = () => {
             </div>
             <div className="slide-content">
               <p className="client-name">
-                {translate("aboutUsCardTitle", language)}
+                {translate("aboutUsCardTitle1", language)}
               </p>
               <p className="client-type">
                 {translate("aboutUsCardType", language)}
               </p>
               <p className="message-text">
-                {translate("aboutUsCardDescription", language)}
+                {translate("aboutUsCardDescription1", language)}
               </p>
             </div>
           </div>
@@ -89,13 +89,13 @@ const AboutUsSlider = () => {
             </div>
             <div className="slide-content">
               <p className="client-name">
-                {translate("aboutUsCardTitle", language)}
+                {translate("aboutUsCardTitle2", language)}
               </p>
               <p className="client-type">
                 {translate("aboutUsCardType", language)}
               </p>
               <p className="message-text">
-                {translate("aboutUsCardDescription", language)}
+                {translate("aboutUsCardDescription2", language)}
               </p>
             </div>
           </div>
@@ -107,13 +107,13 @@ const AboutUsSlider = () => {
             </div>
             <div className="slide-content">
               <p className="client-name">
-                {translate("aboutUsCardTitle", language)}
+                {translate("aboutUsCardTitle3", language)}
               </p>
               <p className="client-type">
                 {translate("aboutUsCardType", language)}
               </p>
               <p className="message-text">
-                {translate("aboutUsCardDescription", language)}
+                {translate("aboutUsCardDescription3", language)}
               </p>
             </div>
           </div>
@@ -125,13 +125,13 @@ const AboutUsSlider = () => {
             </div>
             <div className="slide-content">
               <p className="client-name">
-                {translate("aboutUsCardTitle", language)}
+                {translate("aboutUsCardTitle4", language)}
               </p>
               <p className="client-type">
                 {translate("aboutUsCardType", language)}
               </p>
               <p className="message-text">
-                {translate("aboutUsCardDescription", language)}
+                {translate("aboutUsCardDescription4", language)}
               </p>
             </div>
           </div>
@@ -143,13 +143,13 @@ const AboutUsSlider = () => {
             </div>
             <div className="slide-content">
               <p className="client-name">
-                {translate("aboutUsCardTitle", language)}
+                {translate("aboutUsCardTitle5", language)}
               </p>
               <p className="client-type">
                 {translate("aboutUsCardType", language)}
               </p>
               <p className="message-text">
-                {translate("aboutUsCardDescription", language)}
+                {translate("aboutUsCardDescription5", language)}
               </p>
             </div>
           </div>
@@ -161,13 +161,13 @@ const AboutUsSlider = () => {
             </div>
             <div className="slide-content">
               <p className="client-name">
-                {translate("aboutUsCardTitle", language)}
+                {translate("aboutUsCardTitle6", language)}
               </p>
               <p className="client-type">
                 {translate("aboutUsCardType", language)}
               </p>
               <p className="message-text">
-                {translate("aboutUsCardDescription", language)}
+                {translate("aboutUsCardDescription6", language)}
               </p>
             </div>
           </div>
@@ -230,9 +230,9 @@ const AboutUsSlider = () => {
         .slider-item {
           background: rgba(255, 255, 255, 1);
           box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.1);
-          height: ${isSmallLayout ? "220px" : "180px"};
+          height: ${isSmallLayout ? "270px" : "220px"};
           margin-top: 25px;
-          padding-top: 25px;
+          padding-top: ${isSmallLayout ? "" : "25px"};
           width: 100%;
           border-radius: 8px;
           margin: 0 7px;
